@@ -2,7 +2,7 @@ name: SonarQube Analysis
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main]
   pull_request:
     branches: [ main ]
 
@@ -32,24 +32,22 @@ jobs:
       
     - name: SonarQube Scanner
       uses: sonarsource/sonarqube-scan-action@master
+      with:
+        args: >
+          -Dsonar.projectKey=pos-backend
+          -Dsonar.projectName="POS BACKEND"
+          -Dsonar.projectVersion=1.0.0
+          -Dsonar.sources=src
+          -Dsonar.tests=test
+          -Dsonar.exclusions=**/node_modules/**,**/dist/**,**/build/**,**/*.spec.ts,**/*.test.ts
+          -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+          -Dsonar.typescript.lcov.reportPaths=coverage/lcov.info
+          -Dsonar.sourceEncoding=UTF-8
+          -Dsonar.scm.provider=git
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        # Project identification
-        SONAR_PROJECT_KEY: "pos-backend"
-        SONAR_PROJECT_NAME: "POS BACKEND"
-        SONAR_PROJECT_VERSION: "1.0.0"
-        SONAR_SOURCES: "src"
-        SONAR_TESTS: "test"
-        SONAR_EXCLUSIONS: "**/node_modules/**,**/dist/**,**/build/**,**/*.spec.ts,**/*.test.ts"
-        # Coverage and test reporting
-        SONAR_JAVASCRIPT_LCOV_REPORTPATHS: "coverage/lcov.info"
-        SONAR_TYPESCRIPT_LCOV_REPORTPATHS: "coverage/lcov.info"
-        # Additional settings
-        SONAR_SOURCEENCODING: "UTF-8"
-        SONAR_SCM_PROVIDER: "git"
-        SONAR_QUALITYGATE_WAIT: "true"
         
     - name: SonarQube Quality Gate check
       uses: sonarsource/sonarqube-quality-gate-action@master
