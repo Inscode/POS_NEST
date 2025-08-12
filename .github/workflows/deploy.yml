@@ -37,11 +37,9 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         # Project identification
-        SONAR_PROJECT_KEY: "thenuwara-pos-system"
-        SONAR_PROJECT_NAME: "POS System"
+        SONAR_PROJECT_KEY: "pos-backend"
+        SONAR_PROJECT_NAME: "POS BACKEND"
         SONAR_PROJECT_VERSION: "1.0.0"
-        SONAR_ORGANIZATION: "your-organization"  # Only needed for SonarCloud
-        # Source code configuration
         SONAR_SOURCES: "src"
         SONAR_TESTS: "test"
         SONAR_EXCLUSIONS: "**/node_modules/**,**/dist/**,**/build/**,**/*.spec.ts,**/*.test.ts"
