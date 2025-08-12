@@ -1,12 +1,12 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "ES2021",  // Keep ES2021 for compatibility
-    "module": "CommonJS",  // Use CommonJS for Node.js modules
-    "skipLibCheck": true,  // Skips library checks for faster compilation
-    "moduleResolution": "node"  // Default for Node.js environment
+    "target": "ES2021",  
+    "module": "CommonJS",
+    "skipLibCheck": true,  
+    "moduleResolution": "node" 
   },
-  "include": ["src/**/*.ts", "test/**/*.ts"],  // Make sure the test files are included
+  "include": ["src/**/*.ts", "test/**/*.ts"],  
   "exclude": [
     "node_modules",
     "dist",
