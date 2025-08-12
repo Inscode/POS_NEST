@@ -16,7 +16,7 @@
     "node_modules",
     "dist",
     "build",
-    "**/*.spec.ts",   // Sonar treats tests separately
+    "**/*.spec.ts",   
     "**/*.test.ts"
   ]
 }
