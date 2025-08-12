@@ -1,15 +1,24 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "target": "es2022"
+    // Keep this within what Sonar supports (safe choices)
+    "target": "ES2022",
+    "module": "CommonJS",
+
+    // Turn OFF newer/unsupported flags for the scan
+    "resolvePackageJsonExports": false,
+    "verbatimModuleSyntax": false,
+    "moduleDetection": "legacy",
+
+    // Ensure type-checking still works
+    "skipLibCheck": true
   },
+  "include": ["src/**/*.ts", "test/**/*.ts"],
   "exclude": [
-    "node_modules", 
-    "dist", 
-    "test", 
-    "**/*.spec.ts", 
+    "node_modules",
+    "dist",
+    "build",
+    "**/*.spec.ts",   // Sonar treats tests separately
     "**/*.test.ts"
   ]
 }
