@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "target": "ES2021",
-    "module": "CommonJS",  // Ensures SonarQube compatibility
+    "module": "CommonJS",  
     "resolvePackageJsonExports": false,
     "verbatimModuleSyntax": false,
     "moduleDetection": "legacy",
